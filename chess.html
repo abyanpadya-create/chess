@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Chess Online</title>
+    
+    <!-- Font Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Library Chess.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+</head>
+<body>
+
+    <!-- ================= LAYAR LOBBY ================= -->
+    <div id="lobby-screen">
+        <div class="lobby-content">
+            <h1 class="lobby-title">MULTIPLAYER<br><span>CHESS</span> ONLINE</h1>
+            
+            <div class="btn-group">
+                <div class="difficulty-wrapper">
+                    <label for="difficulty">Pilih Level Komputer:</label>
+                    <select id="difficulty" class="difficulty-select">
+                        <option value="1">Mudah (Acak)</option>
+                        <option value="2" selected>Sedang (Minimax 2)</option>
+                        <option value="3">Sulit (Minimax 3)</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-ai" onclick="startGame('ai')">
+                    <span class="btn-icon">🤖</span> Main Lawan Komputer
+                </button>
+                <button class="btn btn-local" onclick="startGame('local')">
+                    <span class="btn-icon">👥</span> 2 Pemain (1 HP)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= LAYAR PERMAINAN ================= -->
+    <div id="game-screen">
+        <button class="back-btn" onclick="backToLobby()">← Kembali</button>
+        <div class="game-header" id="game-header-text">Giliran: Putih</div>
+        
+        <div class="board-container">
+            <div id="chessboard"></div>
+        </div>
+        
+        <div id="status-msg">Pilih bidak untuk melangkah</div>
+    </div>
+
+    <!-- Script Eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
